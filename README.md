@@ -10,6 +10,30 @@ A full-stack application for securely signing PDF documents using a digital cert
 - Preview signed PDFs in-browser
 - Stylish UI with Tailwind CSS
 
+## Screenshots
+
+> Place your screenshots in `public/screenshots/` and update the paths below.
+
+### Desktop View
+
+![Before_File_Upload](public/screenshots/Desktop1.png)
+
+![File_Upload_For_Sign](public/screenshots/Desktop2.png)
+
+![File_Sign_Processing](public/screenshots/Desktop3.png)
+
+![File_Signed_And_View](public/screenshots/Desktop4.png)
+
+### Mobile View
+
+![Before_File_Upload](public/screenshots/Mobile1.png)
+
+![File_Upload_For_Sign](public/screenshots/Mobile2.png)
+
+![File_Sign_Processing](public/screenshots/Mobile3.png)
+
+![File_Signed_And_View](public/screenshots/Mobile4.png)
+
 ## Project Structure
 
 ```
@@ -23,7 +47,7 @@ A full-stack application for securely signing PDF documents using a digital cert
 ├── server/             # Express backend
 │   ├── index.js        # API for signing PDFs
 │   └── certificate.p12 # Your signing certificate
-├── public/             # Static assets
+├── public/             # Static assets and screenshots
 ├── test/               # Jest setup and mocks
 ├── package.json        # Project scripts and dependencies
 ├── vite.config.ts      # Vite configuration
@@ -65,6 +89,12 @@ The frontend will proxy API requests to the backend (`/api/sign`).
 
 ```sh
 npm run build
+```
+
+### Run Tests
+
+```sh
+npm test
 ```
 
 ## Usage
