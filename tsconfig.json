@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
     "jsx": "react-jsx",
-    "types": ["@testing-library/jest-dom"]
+    "module": "ESNext",
+    "types": ["@testing-library/jest-dom"],
+    "moduleResolution": "node"
   },
   "files": [],
   "references": [

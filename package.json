@@ -8,9 +8,20 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "server": "node server/index.js",
+    "server:dev": "nodemon server/index.js",
     "test": "jest"
   },
   "dependencies": {
+    "@react-pdf-viewer/core": "^3.12.0",
+    "@signpdf/placeholder-pdf-lib": "^3.2.6",
+    "@signpdf/signer-p12": "^3.2.4",
+    "@signpdf/signpdf": "^3.2.5",
+    "express": "^5.1.0",
+    "multer": "^2.0.2",
+    "node-signpdf": "^3.0.0",
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^3.4.120",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
   },
@@ -29,6 +40,7 @@
     "globals": "^16.3.0",
     "jest": "^30.1.1",
     "jest-environment-jsdom": "^30.1.1",
+    "nodemon": "^3.1.10",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.17",
     "ts-jest": "^29.4.1",

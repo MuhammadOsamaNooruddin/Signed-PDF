@@ -1,8 +1,16 @@
+import { Card } from "./components/Card/Card";
+import { Footer } from "./components/Footer/Footer";
+import { Header } from "./components/Header/Header";
+
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-r from-rose-50 to-pink-50">
-      <h1 className="text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">Sign PDF</h1>
-    </div>
+    <>
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white p-5">
+        <Header />
+        <Card />
+      </div>
+      <Footer />
+    </>
   );
 }
 
