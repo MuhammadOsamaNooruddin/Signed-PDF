@@ -5,7 +5,7 @@ import { Header } from "./components/Header/Header";
 function App() {
   return (
     <>
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white p-5">
+      <div className=" bg-gradient-to-br from-blue-50 to-white p-5">
         <Header />
         <Card />
       </div>
