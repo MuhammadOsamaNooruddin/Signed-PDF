@@ -12,8 +12,6 @@ A full-stack application for securely signing PDF documents using a digital cert
 
 ## Screenshots
 
-> Place your screenshots in `public/screenshots/` and update the paths below.
-
 ### Desktop View
 
 ![Before_File_Upload](public/screenshots/Desktop1.png)
