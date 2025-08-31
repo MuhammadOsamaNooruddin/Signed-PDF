@@ -1,69 +1,94 @@
-# React + TypeScript + Vite
+# SignPDF
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack application for securely signing PDF documents using a digital certificate. Built with React, TypeScript, Vite, Express, and pdf-lib.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Upload PDF files via a modern React UI
+- Securely sign PDFs on the backend using a `.p12` certificate
+- Download signed PDFs
+- Preview signed PDFs in-browser
+- Stylish UI with Tailwind CSS
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+├── src/                # React frontend
+│   ├── components/     # UI components
+│   ├── constants/      # Shared constants and types
+│   ├── createPDF/      # PDF preview component
+│   ├── assets/         # SVGs and images
+│   ├── App.tsx         # Main app
+│   └── main.tsx        # Entry point
+├── server/             # Express backend
+│   ├── index.js        # API for signing PDFs
+│   └── certificate.p12 # Your signing certificate
+├── public/             # Static assets
+├── test/               # Jest setup and mocks
+├── package.json        # Project scripts and dependencies
+├── vite.config.ts      # Vite configuration
+├── tailwind.config.js  # Tailwind configuration
+├── tsconfig*.json      # TypeScript configs
+└── README.md           # This file
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Getting Started
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Prerequisites
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Node.js (v18+ recommended)
+- A valid `.p12` certificate placed in `server/certificate.p12`
+
+### Install Dependencies
+
+```sh
+npm install
 ```
+
+### Run the Development Servers
+
+Start the backend server:
+
+```sh
+npm run server:dev
+```
+
+Start the frontend (React/Vite):
+
+```sh
+npm run dev
+```
+
+The frontend will proxy API requests to the backend (`/api/sign`).
+
+### Build for Production
+
+```sh
+npm run build
+```
+
+## Usage
+
+1. Open the app in your browser (`http://localhost:5173` by default).
+2. Upload a PDF file.
+3. Click "Sign Document Securely".
+4. Download or preview the signed PDF.
+
+## Configuration
+
+- The backend listens on port `4000` by default.
+- The frontend proxies `/api` requests to the backend (see [`vite.config.ts`](vite.config.ts)).
+- Update certificate details in [`server/index.js`](server/index.js) as needed.
+
+## Tech Stack
+
+- **Frontend:** React, TypeScript, Vite, Tailwind CSS
+- **Backend:** Express, pdf-lib, @signpdf/signpdf, multer
+
+## License
+
+MIT
+
+---
+
+**Note:** Never share your `.p12` certificate publicly.
